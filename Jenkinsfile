@@ -3,7 +3,10 @@ pipeline{
     stages {
     	stage('setup')
     	{
-    		sh 'source ~/.devops/bin/activate'
+    		steps
+    		{
+    			sh 'source ~/.devops/bin/activate'
+    		}
 
     	}
     	stage('Install Dependencies')
