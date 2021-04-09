@@ -5,7 +5,7 @@ pipeline{
     	{
     		steps
     		{
-    			sh 'source ~/.devops/bin/activate'
+    			sh 'source ./.devops/bin/activate'
     		}
 
     	}
