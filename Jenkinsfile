@@ -1,10 +1,21 @@
 pipeline{
 	agent any
     stages {
-        stage('Linting') {
-            steps {
-            	echo "this is the linting stage"
-            	make lint
+    	stage('Install Dependencies')
+    	{
+    		steps 
+    		{
+    			sh 'echo "installing Dependencies"'
+    			sh 'pip install --user -r requirements.txt'
+    		}
+    	}
+
+        stage('Linting') 
+        {
+            steps 
+            {
+            	sh 'echo "this is the linting stage"'
+            	sh 'make lint'
             }
         }
 		// stage('Build image')
