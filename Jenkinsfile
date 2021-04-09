@@ -15,7 +15,7 @@ pipeline{
             steps 
             {
             	sh 'echo "this is the linting stage"'
-            	sh 'make lint'
+            	sh 'pylint --disable=R,C,W1203,W1309 app.py'
             }
         }
         stage('test')
