@@ -1,14 +1,6 @@
 pipeline{
 	agent any
     stages {
-    	stage('setup')
-    	{
-    		steps
-    		{
-    			sh 'source /home/mohamed/Desktop/Udacity_Capstone_Project/.devops/bin/activate'
-    		}
-
-    	}
     	stage('Install Dependencies')
     	{
     		steps 
