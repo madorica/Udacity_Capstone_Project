@@ -5,7 +5,8 @@ pipeline{
     	{
     		steps
     		{
-    			sh 'source ~/Desktop/Udacity_Capstone_Project/.devops/bin/activate'
+    			sh 'cd ~/Desktop/Udacity_Capstone_Project'
+    			sh 'source ./.devops/bin/activate'
     		}
 
     	}
