@@ -1,14 +1,12 @@
 pipeline{
 	agent any
-	stages 
-	{
-		stage(‘Linting')
-		{
-			Steps {
-				echo "this is the linting stage"
-				make lint
-			}
-		}
+    stages {
+        stage('Linting') {
+            steps {
+            	echo "this is the linting stage"
+            	make lint
+            }
+        }
 		// stage('Build image')
 		// {
 
