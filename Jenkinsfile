@@ -22,7 +22,7 @@ pipeline{
         {
         	steps
         	{
-        		sh 'python app.py'
+        		sh 'pytest app.py'
         	}
         }
 		// stage('Build image')
