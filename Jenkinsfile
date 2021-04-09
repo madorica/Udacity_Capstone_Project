@@ -1,12 +1,17 @@
 pipeline{
 	agent any
     stages {
+    	stage('setup')
+    	{
+    		sh 'source ~/.devops/bin/activate'
+
+    	}
     	stage('Install Dependencies')
     	{
     		steps 
     		{
     			sh 'echo "installing Dependencies"'
-    			sh 'pip install --user -r requirements.txt'
+    			sh 'pip install -r requirements.txt'
     		}
     	}
 
@@ -17,6 +22,13 @@ pipeline{
             	sh 'echo "this is the linting stage"'
             	sh 'make lint'
             }
+        }
+        stage('test')
+        {
+        	steps
+        	{
+        		sh 'python app.py'
+        	}
         }
 		// stage('Build image')
 		// {
