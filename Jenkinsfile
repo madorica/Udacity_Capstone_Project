@@ -15,7 +15,7 @@ pipeline{
             steps 
             {
             	sh 'echo linting the app file and the dockerfile'
-            	sh 'make all-for-lint'
+            	sh 'make all'
             }
         }
 		stage('Build image')
