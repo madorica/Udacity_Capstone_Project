@@ -46,7 +46,7 @@ pipeline{
 		// 		sh 'docker push mohamed992/capstoneapp'
 
 		// 	}
-		}
+		//}
 		stage('Deploy EKS') 
 		{
 		 environment {
