@@ -1,14 +1,14 @@
 pipeline{
 	agent any
     stages {
-    	// stage('Install Dependencies')
-    	// {
-    	// 	steps 
-    	// 	{
-    	// 		sh 'echo "installing Dependencies"'
-    	// 		sh 'pip install --user -r requirements.txt'
-    	// 	}
-    	// }
+    	stage('Install Dependencies')
+    	{
+    		steps 
+    		{
+    			sh 'echo "installing Dependencies"'
+    			sh 'pip install --user -r requirements.txt'
+    		}
+    	}
 
      //    stage('Linting') 
      //    {
@@ -30,7 +30,6 @@ pipeline{
 		{
 			steps
 			{
-				sh 'cd ~/Desktop/Udacity_Capstone_Project'
 				sh 'pytest test.py'
 			}
 		}
