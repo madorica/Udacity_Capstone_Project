@@ -8,6 +8,8 @@ install:
 	pip install -r requirements.txt
 
 test:
+	pip install pytest
+	pip install requests
 	pytest test.py
 
 lint:
