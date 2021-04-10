@@ -20,7 +20,10 @@ pipeline{
         }
 		stage('Build image')
 		{
-			sh './run_docker.sh'
+			steps
+			{
+				sh './run_docker.sh'
+			}
 		}
 		// stage(Push image')
 		// {
