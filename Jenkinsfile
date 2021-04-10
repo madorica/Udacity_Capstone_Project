@@ -12,23 +12,22 @@ pipeline{
 
         stage('Linting') 
         {
+        	agent 
+        	{
+        		docker { image 'python:3.7.3-stretch'}
+        	}
             steps 
             {
             	sh 'echo "this is the linting stage"'
+            	sh 'pip install -r requirements.txt'
+            	sh 'hadolint Dockerfile'
             	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
             }
         }
-        stage('test')
-        {
-        	steps
-        	{
-        		sh 'pytest app.py'
-        	}
-        }
-		// stage('Build image')
-		// {
+		 stage('Build image')
+		 {
 
-		// }
+		 }
 		// stage(Push image')
 		// {
 
