@@ -30,6 +30,7 @@ pipeline{
 			steps
 			{
 				sh '. ./.devops/bin/activate'
+				sh 'pip install -r requirements.txt'
 				sh 'pytest ./test.py' 
 			}
 		}
