@@ -8,7 +8,7 @@ install:
 	pip install -r requirements.txt
 
 test:
-	pytest ./test.py
+	pytest test.py
 
 lint:
 	hadolint --ignore=DL3013 Dockerfile
