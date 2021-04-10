@@ -29,7 +29,7 @@ pipeline{
 		{
 			steps
 			{
-				sh '. /.devops/bin/activate'
+				sh '. ./.devops/bin/activate'
 				sh 'pytest ./test.py' 
 			}
 		}
