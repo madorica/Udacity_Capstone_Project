@@ -58,7 +58,7 @@ pipeline{
 			 {
 				//sh 'curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp'
 				//sh 'mv /tmp/eksctl /usr/local/bin'
-				sh 'eksctl create cluster --name capstone_cluster --version 1.18 --region eu-central-1 --nodegroup-name ubuntu-nodes --node-type t2.micro --nodes 3'	
+				sh 'eksctl create cluster --name capstone-cluster --version 1.18 --region eu-central-1 --nodegroup-name ubuntu-nodes --node-type t2.micro --nodes 3'	
 			 }			 	
 		 }
 	
