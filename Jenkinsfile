@@ -29,7 +29,9 @@ pipeline{
 		{
 			steps
 			{
-				sh 'make all-for-test'
+				sh 'pip install pytest'
+				sh 'pip install requests'
+				sh 'pytest test.py'
 			}
 		}
 		// stage(Push image')
