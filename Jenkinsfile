@@ -24,10 +24,10 @@ pipeline{
             	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
             }
         }
-		 stage('Build image')
-		 {
+		 // stage('Build image')
+		 // {
 
-		 }
+		 // }
 		// stage(Push image')
 		// {
 
