@@ -25,6 +25,13 @@ pipeline{
 				sh './run_docker.sh'
 			}
 		}
+		stage('test')
+		{
+			steps
+			{
+				sh 'pytest ./test.py' 
+			}
+		}
 		// stage(Push image')
 		// {
 

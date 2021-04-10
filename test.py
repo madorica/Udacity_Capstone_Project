@@ -1,7 +1,12 @@
 # test.py
-from app import app
+import pytest
+import requests
 
-def test_hello():
-    response = app.test_client().get('/')
+@pytest.fixture
+def my_url():
+	return "http://localhost:8000"
 
-    assert response.data == b'Hello, World!'
+def test_url(my_url):
+	url = my_url + "/"
+	print(url)
+	response = requests.get(url)
