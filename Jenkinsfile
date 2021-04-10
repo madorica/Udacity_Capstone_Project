@@ -18,7 +18,7 @@ pipeline{
             steps 
             {
             	sh 'echo "this is the linting stage"'
-            	sh 'pip install -r requirements.txt'
+            	sh 'pip install --user -r requirements.txt'
             	sh 'hadolint Dockerfile'
             	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
             }
