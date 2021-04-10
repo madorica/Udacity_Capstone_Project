@@ -19,13 +19,13 @@ pipeline{
             	sh 'hadolint --ignore=DL3013 Dockerfile'
             }
         }
-		stage('Build image')
-		{
-			steps
-			{
-				sh './run_docker.sh'
-			}
-		}
+//		stage('Build image')
+//		{
+//			steps
+//			{
+//				sh './run_docker.sh'
+//			}
+//		}
 		stage('test')
 		{
 			steps
