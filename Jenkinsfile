@@ -29,8 +29,7 @@ pipeline{
 		{
 			steps
 			{
-				sh 'pip install pytest'
-				sh 'pip install requests'
+
 				sh 'python3.7 -m pytest test.py'
 			}
 		}
