@@ -1,5 +1,5 @@
 pipeline{
-	agent { dockerfile true }
+	agent any
     stages {
     	stage('Install Dependencies')
     	{
@@ -9,22 +9,22 @@ pipeline{
     		}
     	}
 
-     //    stage('Linting') 
-     //    {
-     //        steps 
-     //        {
-     //        	sh 'echo linting the app file and the dockerfile'
-     //        	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
-     //        	sh 'hadolint --ignore=DL3013 Dockerfile'
-     //        }
-     //    }
-//		stage('Build image')
-//		{
-//			steps
-//			{
-//				sh './run_docker.sh'
-//			}
-//		}
+        stage('Linting') 
+        {
+            steps 
+            {
+            	sh 'echo linting the app file and the dockerfile'
+            	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
+            	sh 'hadolint --ignore=DL3013 Dockerfile'
+            }
+        }
+		stage('Build image')
+		{
+			steps
+			{
+				sh './run_docker.sh'
+			}
+		}
 		stage('test')
 		{
 			steps
