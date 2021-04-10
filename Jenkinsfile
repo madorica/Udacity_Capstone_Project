@@ -29,7 +29,6 @@ pipeline{
 		{
 			steps
 			{
-				sh '. ./.devops/bin/activate'
 				sh 'make test'
 			}
 		}
