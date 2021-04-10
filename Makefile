@@ -6,7 +6,7 @@
 install:
 	# This should be run from inside a virtualenv
 	# pip install --upgrade pip &&\
-	pip install -r requirements.txt
+	pip install --user -r requirements.txt
 
 test:
 	# Additional, optional, tests could go here
@@ -19,6 +19,6 @@ lint:
 	hadolint Dockerfile
 	# This is a linter for Python source code linter: https://www.pylint.org/
 	# This should be run from inside a virtualenv
-	pylint --disable=R,C,W1203,W1309 app.py
+	pylint --disable=R,C,W1203,W1309,E0401 app.py
 
-all: install lint test
+all: install lint

@@ -14,11 +14,8 @@ pipeline{
         {
             steps 
             {
-	            sh 'python3 -m venv venv'
-	            sh '. venv/bin/activate'
-	            sh 'wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.17.5/hadolint-Linux-x86_64'
-                sh 'chmod +x /bin/hadolint'
-            	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
+            	sh 'make all'
+            //	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
             }
         }
 		 // stage('Build image')
