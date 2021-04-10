@@ -36,8 +36,8 @@ pipeline{
 		stage('Push image')
 		{
 			environment{
-				DOCKER_USER = credentials('docker-username')
-				DOCKER_PASSWORD = credentials('docker-password')
+				DOCKER_USER = credentials('docker_username')
+				DOCKER_PASSWORD = credentials('docker_password')
 			}
 			steps
 			{
