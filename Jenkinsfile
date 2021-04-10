@@ -42,8 +42,8 @@ pipeline{
 			steps
 			{
 				sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
-				sh 'dockerpath=mohamed992/capstoneapp'
-				sh 'docker tag capstone:v2 $dockerpath'
+				//sh 'dockerpath=mohamed992/capstoneapp'
+				sh 'docker tag capstone:v2 mohamed992/capstoneapp'
 				sh 'docker push $dockerpath'
 
 			}
