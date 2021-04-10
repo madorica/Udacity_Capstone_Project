@@ -18,39 +18,41 @@ pipeline{
             	sh 'make all'
             }
         }
-		stage('Build image')
-		{
-			steps
-			{
-				sh './run_docker.sh'
-			}
-		}
-		stage('test')
-		{
-			steps
-			{
-
-				sh 'python3.7 -m pytest test.py'
-			}
-		}
-		stage('Push image')
-		{
-			environment{
-				DOCKER_USER = credentials('docker_username')
-				DOCKER_PASSWORD = credentials('docker_password')
-			}
-			steps
-			{
-				sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
-				sh 'docker tag capstone:v2 mohamed992/capstoneapp'
-				sh 'docker push mohamed992/capstoneapp'
-
-			}
-		}
-		// stage('create the kubeconfig file') 
+		// stage('Build image')
 		// {
-
+		// 	steps
+		// 	{
+		// 		sh './run_docker.sh'
+		// 	}
 		// }
+		// stage('test')
+		// {
+		// 	steps
+		// 	{
+
+		// 		sh 'python3.7 -m pytest test.py'
+		// 	}
+		// }
+		// stage('Push image')
+		// {
+		// 	environment{
+		// 		DOCKER_USER = credentials('docker_username')
+		// 		DOCKER_PASSWORD = credentials('docker_password')
+		// 	}
+		// 	steps
+		// 	{
+		// 		sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
+		// 		sh 'docker tag capstone:v2 mohamed992/capstoneapp'
+		// 		sh 'docker push mohamed992/capstoneapp'
+
+		// 	}
+		}
+		stage('Deploy EKS') 
+		{
+			sh 'curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp'
+			sh 'mv /tmp/eksctl /usr/local/bin'
+			sh 'eksctl create cluster --name capstone_cluster --version 1.18 --region eu-central-1 --nodegroup-name ubuntu-nodes --node-type t2.micro --nodes 3'
+		}
 		// stage('Deploy blue container')
 		// {
 		//   when { branch 'blue'}
