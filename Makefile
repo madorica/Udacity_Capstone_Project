@@ -14,4 +14,5 @@ lint:
 	hadolint --ignore=DL3013 Dockerfile
 	pylint --disable=R,C,W1203,W1309,E0401 app.py
 
-all: setup install lint 
+all-for-lint: setup install lint
+all-for-test: setup install test
