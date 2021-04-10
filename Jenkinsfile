@@ -14,7 +14,7 @@ pipeline{
         {
             steps 
             {
-            	sh 'make'
+            	sh 'make all'
             //	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
             }
         }
