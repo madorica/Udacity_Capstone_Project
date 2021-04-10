@@ -31,7 +31,7 @@ pipeline{
 			{
 				sh 'pip install pytest'
 				sh 'pip install requests'
-				sh 'pytest test.py'
+				sh 'python -m pytest test.py'
 			}
 		}
 		// stage(Push image')
