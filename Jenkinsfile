@@ -30,6 +30,7 @@ pipeline{
 		{
 			steps
 			{
+				sh 'cd ~/Desktop/Udacity_Capstone_Project'
 				sh 'pytest test.py'
 			}
 		}
