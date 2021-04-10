@@ -1,12 +1,11 @@
 pipeline{
-	agent any
+	agent { docker dockerfile}
     stages {
     	stage('Install Dependencies')
     	{
     		steps 
     		{
-    			sh 'echo "installing Dependencies"'
-    			sh 'pip install -r requirements.txt'
+    			sh 'pip install --user -r requirements.txt'
     		}
     	}
 
