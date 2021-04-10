@@ -15,7 +15,8 @@ pipeline{
             steps 
             {
             	sh 'echo linting the app file and the dockerfile'
-            	sh 'make all-for-lint'
+            	sh 'pylint app.py'
+            	sh 'hadolint Dockerfile'
             }
         }
 		stage('Build image')
@@ -29,7 +30,7 @@ pipeline{
 		{
 			steps
 			{
-				sh 'make all-for-test'
+				sh 'pytest test.py'
 			}
 		}
 		// stage(Push image')
