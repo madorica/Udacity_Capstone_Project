@@ -54,7 +54,7 @@ pipeline{
 		     AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
 		 }
 		 steps{
-	         withAWS(region: 'us-west-2', credentials: 'aws-credentials')
+	         withAWS(region: 'us-west-2', credentials: 'AWS Access')
 			 {
 				//sh 'curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp'
 				//sh 'mv /tmp/eksctl /usr/local/bin'
