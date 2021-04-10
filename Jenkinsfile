@@ -1,5 +1,5 @@
 pipeline{
-	agent { docker dockerfile}
+	agent { dockerfile true }
     stages {
     	stage('Install Dependencies')
     	{
