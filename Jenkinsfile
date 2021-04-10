@@ -33,10 +33,21 @@ pipeline{
 				sh 'python3.7 -m pytest test.py'
 			}
 		}
-		// stage(Push image')
-		// {
+		stage('Push image')
+		{
+			environment{
+				DOCKER_USER = credential('docker-username')
+				DOCKER_PASSWORD = credential('docker-password')
+			}
+			steps
+			{
+				sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
+				sh 'dockerpath=mohamed992/capstoneapp'
+				sh 'docker tag capstone:v2 $dockerpath'
+				sh 'docker push $dockerpath'
 
-		// }
+			}
+		}
 		// stage('create the kubeconfig file') 
 		// {
 
