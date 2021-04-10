@@ -14,14 +14,14 @@ pipeline{
         {
             steps 
             {
+            	sh 'echo linting the app file and the dockerfile'
             	sh 'make all'
-            //	sh 'pylint --disable=R,C,W1203,W1309,E0401 app.py'
             }
         }
-		 // stage('Build image')
-		 // {
-
-		 // }
+		stage('Build image')
+		{
+			sh './run_docker.sh'
+		}
 		// stage(Push image')
 		// {
 
