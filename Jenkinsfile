@@ -1,5 +1,5 @@
 pipeline{
-	agent none
+	agent { dockerfile true }
     stages {
     	stage('Install Dependencies')
     	{
@@ -12,10 +12,6 @@ pipeline{
 
         stage('Linting') 
         {
-        	agent 
-        	{
-        		docker { image 'python:3.7.3-stretch'}
-        	}
             steps 
             {
             	sh 'echo "this is the linting stage"'
