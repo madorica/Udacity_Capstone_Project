@@ -18,32 +18,32 @@ pipeline{
             	sh 'make all'
             }
         }
-		// stage('Build image')
-		// {
-		// 	steps
-		// 	{
-		// 		sh './run_docker.sh'
-		// 	}
-		// }
-		// stage('test')
-		// {
-		// 	steps
-		// 	{
+		stage('Build image')
+		{
+			steps
+			{
+				sh './run_docker.sh'
+			}
+		}
+		stage('test')
+		{
+			steps
+			{
 
-		// 		sh 'python3.7 -m pytest test.py'
-		// 	}
-		// }
-		// stage('Push image')
-		// {
-		// 	environment{
-		// 		DOCKER_USER = credentials('docker_username')
-		// 		DOCKER_PASSWORD = credentials('docker_password')
-		// 	}
-		// 	steps
-		// 	{
-		// 		sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
-		// 		sh 'docker tag capstone:v2 mohamed992/capstoneapp'
-		// 		sh 'docker push mohamed992/capstoneapp'
+				sh 'python3.7 -m pytest test.py'
+			}
+		}
+		stage('Push image')
+		{
+			environment{
+				DOCKER_USER = credentials('docker_username')
+				DOCKER_PASSWORD = credentials('docker_password')
+			}
+			steps
+			{
+				sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
+				sh 'docker tag capstone:v2 mohamed992/capstoneapp'
+				sh 'docker push mohamed992/capstoneapp'
 				sh 'aws ecr-public get-login-password --region eu-central-1 | docker login --username AWS --password-stdin public.ecr.aws/y5m6t7d6'
 				sh 'docker tag capstone:v2 public.ecr.aws/y5m6t7d6/capstone:v2'
 				sh 'docker push public.ecr.aws/y5m6t7d6/capstone:v2'
@@ -59,10 +59,8 @@ pipeline{
 		 steps{
 	         withAWS(region: 'eu-central-1', credentials: 'AWS Access')
 			 {
-				//sh 'curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp'
-				//sh 'mv /tmp/eksctl /usr/local/bin'
-				//sh 'eksctl delete cluster --name capstone-cluster'
-				//sh 'eksctl create cluster --name capstone-cluster --version 1.18 --region eu-central-1 --managed --nodegroup-name linx-nodes --node-type t2.small --nodes 2'
+				sh 'eksctl delete cluster --name capstone-cluster'
+				sh 'eksctl create cluster --name capstone-cluster --version 1.18 --region eu-central-1 --managed --nodegroup-name linx-nodes --node-type t2.small --nodes 2'
 				sh 'kubectl apply -f deploy.yml'
 			 	sh 'kubectl apply -f kubernetes/loadbalancer.yml'
 			 }
