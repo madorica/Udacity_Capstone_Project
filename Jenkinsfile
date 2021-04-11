@@ -58,8 +58,8 @@ pipeline{
 			 {
 				//sh 'curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp'
 				//sh 'mv /tmp/eksctl /usr/local/bin'
-				sh 'eksctl delete cluster --name capstone-cluster'
-				//sh 'eksctl create cluster --name capstone-cluster --version 1.18 --region eu-central-1 --managed --nodegroup-name linx-nodes --node-type t2.small --nodes 2'	
+				//sh 'eksctl delete cluster --name capstone-cluster'
+				sh 'eksctl create cluster --name capstone-cluster --version 1.18 --region eu-central-1 --managed --nodegroup-name linx-nodes --node-type t2.small --nodes 2'	
 			 }
 
 		 }
