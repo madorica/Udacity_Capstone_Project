@@ -1,2 +1,2 @@
 https://github.com/madorica/Udacity_Capstone_Project
-aeaf177e7cbbc4bb88dfc3cf41ace285-717151249.eu-central-1.elb.amazonaws.com
+http://a8841d526d3d24805b5623f7b00b61c2-873972346.eu-central-1.elb.amazonaws.com/
