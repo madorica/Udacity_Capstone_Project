@@ -68,9 +68,9 @@ pipeline{
 		 steps{
 	         withAWS(region: 'eu-central-1', credentials: 'AWS Access')
 			 {
-			 	sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
-				sh 'unzip awscliv2.zip'
-				sh 'sudo ./aws/install'
+			 	//sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
+				//sh 'unzip awscliv2.zip'
+				//sh 'sudo ./aws/install'
 				sh 'eksctl delete cluster --name capstone-cluster'
 				sh 'eksctl create cluster --name capstone-cluster --version 1.18 --region eu-central-1 --managed --nodegroup-name linx-nodes --node-type t2.small --nodes 2'
 				sh 'kubectl apply -f deploy.yml'
