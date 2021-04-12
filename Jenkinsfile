@@ -48,8 +48,8 @@ pipeline{
 				sh 'docker tag capstone:v2 public.ecr.aws/y5m6t7d6/capstone:v2'
 				sh 'docker push public.ecr.aws/y5m6t7d6/capstone:v2'
 
-		// 	}
-		//}
+		 	}
+		}
 		stage('Deploy EKS') 
 		{
 		 // environment {
@@ -69,3 +69,4 @@ pipeline{
 	
 		}
 	}
+}
