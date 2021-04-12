@@ -41,13 +41,15 @@ pipeline{
 			}
 			steps
 			{
+			 withAWS(region: 'eu-central-1', credentials: 'AWS Access')
+			 {
 				sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
 				sh 'docker tag capstone:v2 mohamed992/capstoneapp'
 				sh 'docker push mohamed992/capstoneapp'
 				sh 'aws ecr-public get-login-password --region eu-central-1 | docker login --username AWS --password-stdin public.ecr.aws/y5m6t7d6'
 				sh 'docker tag capstone:v2 public.ecr.aws/y5m6t7d6/capstone:v2'
 				sh 'docker push public.ecr.aws/y5m6t7d6/capstone:v2'
-
+			}
 		 	}
 		}
 		stage('Deploy EKS') 
