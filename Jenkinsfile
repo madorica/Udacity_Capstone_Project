@@ -48,7 +48,7 @@ pipeline{
 			 	sh 'mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin'
 			 	sh 'echo "export PATH=$PATH:$HOME/bin" >> ~/.bashrc'
 			 	sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
-			 	sh 'unzip awscliv2.zip'
+			 	sh 'unzip -o awscliv2.zip'
 				sh './aws/install'
 				sh 'docker login -u $DOCKER_USER -p $DOCKER_PASSWORD'
 				sh 'docker tag capstone:v2 mohamed992/capstoneapp'
